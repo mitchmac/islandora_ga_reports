@@ -1,6 +1,5 @@
 <?php
 
-
 //Enable Google analytics site search.
 
 //1. Go to http://www.google.com/analytics/ and sign in.
@@ -52,39 +51,22 @@ $handler->display->display_options['style_options']['info'] = array(
     'empty_column' => 0,
   ),
 );
-/* Field: Geo / Network Dimensions: ga:country */
+/* Field: Geo / Network Dimensions: ga:searchKeyword */
 $handler->display->display_options['fields']['search']['id'] = 'searchKeyword';
 $handler->display->display_options['fields']['search']['table'] = 'google_analytics';
 $handler->display->display_options['fields']['search']['field'] = 'searchKeyword';
 $handler->display->display_options['fields']['search']['label'] = 'Search';
-/* Field: Page Tracking Metrics: ga:pageviews */
+/* Field: Page Tracking Metrics: ga:searchResultViews */
 $handler->display->display_options['fields']['pageviews']['id'] = 'searchResultViews';
 $handler->display->display_options['fields']['pageviews']['table'] = 'google_analytics';
 $handler->display->display_options['fields']['pageviews']['field'] = 'searchResultViews';
 $handler->display->display_options['fields']['pageviews']['label'] = 'Downloads';
-/* Sort criterion: Page Tracking Metrics: ga:pageviews */
+/* Sort criterion: Page Tracking Metrics: ga:searchResultViews */
 $handler->display->display_options['sorts']['searchResultViews']['id'] = 'searchResultViews';
 $handler->display->display_options['sorts']['searchResultViews']['table'] = 'google_analytics';
 $handler->display->display_options['sorts']['searchResultViews']['field'] = 'searchResultViews';
 $handler->display->display_options['sorts']['searchResultViews']['order'] = 'DESC';
 
-/* Contextual filter: Page Tracking Dimensions: ga:pagePath */
-$handler->display->display_options['arguments']['pagePath']['id'] = 'pagePath';
-$handler->display->display_options['arguments']['pagePath']['table'] = 'google_analytics';
-$handler->display->display_options['arguments']['pagePath']['field'] = 'pagePath';
-$handler->display->display_options['arguments']['pagePath']['default_action'] = 'default';
-$handler->display->display_options['arguments']['pagePath']['default_argument_type'] = 'php';
-$handler->display->display_options['arguments']['pagePath']['default_argument_options']['code'] = '$url = urldecode(request_uri()) . \'/datastream/OBJ/download\';
-return $url;';
-$handler->display->display_options['arguments']['pagePath']['summary']['number_of_records'] = '0';
-$handler->display->display_options['arguments']['pagePath']['summary']['format'] = 'default_summary';
-$handler->display->display_options['arguments']['pagePath']['summary_options']['items_per_page'] = '25';
-/* Filter criterion: Geo / Network Dimensions: ga:country */
-$handler->display->display_options['filters']['country']['id'] = 'country';
-$handler->display->display_options['filters']['country']['table'] = 'google_analytics';
-$handler->display->display_options['filters']['country']['field'] = 'country';
-$handler->display->display_options['filters']['country']['operator'] = '!=';
-$handler->display->display_options['filters']['country']['value'] = '(not set)';
 
 /* Display: Block */
 $handler = $view->new_display('block', 'Block', 'block');
